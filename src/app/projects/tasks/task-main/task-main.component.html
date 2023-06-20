@@ -1,0 +1,98 @@
+<section>
+    <div class="container">
+        <div class="row">
+    <h1>Add Task </h1>
+            <form [formGroup]="Form" (ngSubmit)="onSubmit(Form)">
+<div class="form-group">
+    <label for="exampleInputEmail1">Task-name</label>
+    <input type="text" formControlName="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Task Name">
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+  <div class="form-group">
+    <label for="exampleInputEmail1">start Date</label>
+    <input type="text"  formControlName="startDate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="start Date">
+  </div>
+    </div>
+       <div class="col-md-6">
+          <div class="form-group">
+    <label for="exampleInputEmail1">end Date</label>
+    <input type="email" formControlName="EndDate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="end Date">
+  </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Time</label>
+    <input type="text" formControlName="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="time">
+  </div>
+    </div>
+    <div class="col-md-6">
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">assign To</label>
+    <input type="text" formControlName="assignTo" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="assign to ">
+  </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-6">
+<div class="form-group">
+    <label for="exampleInputEmail1">Parent Of</label>
+    <input type="text"  formControlName="childOf" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Child Of">
+  </div>
+    </div>
+    <div class="col-md-6">
+          <div class="form-group">
+    <label for="exampleInputEmail1">child Of</label>
+    <input type="email" formControlName="ParentOf" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="parent Of">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+        <h1> Add tools</h1>
+                  <div class="form-group">
+    <label for="exampleInputEmail1">add tools</label>
+    <input  #tools type="tools" formControlName="tools" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add tools">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+
+  <button (click)="addTools(tools.value)" class="btn btn-primary">Add tools </button>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10">
+        <h1> Add steps</h1>
+                  <div class="form-group">
+    <label for="exampleInputEmail1">add steps</label>
+    <input #steps  type="email" formControlName="steps" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add Steps">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+
+  <button (click)="addSteps(steps.value)" class="btn btn-primary">Add Steps </button>
+
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+<button  type="submit "class="btn btn-primary">Create Task</button>
+
+  </div>
+            </form>
+            <div class="btn -container d-flex justify-content-center">
+            <button (click)="returnHome()" class="btn btn-primary">Return To Home Page</button>
+
+            </div>
+        </div>
+
+    </div>
+</section>

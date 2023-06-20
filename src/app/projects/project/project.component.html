@@ -1,0 +1,178 @@
+<section id="project">
+  <div class="container">
+    <div class="title-container d-flex justify-content-center">
+    <h2 class="title">ATi Test Task</h2>
+</div>
+<div class="row">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+ <ul class="nav nav-pills">
+              <li class="nav-item p-3">
+                <a class=" btn btn-primary ml-5 px-4" aria-current="page"  (click)="appearDetails()">Task</a>
+              </li>
+              <li class="nav-item p-3">
+                <a class=" btn btn-primary ml-5"  (click)="appeaerChart()">Task Chart</a>
+              </li>
+            </ul>
+    </div>
+
+</div>
+   
+    </div>
+    <div class="row"  *ngIf="taskData" [ngClass]="{'appear': taskData, 'disappear': !taskData}">
+      <div class="col-md-12 select-box-container">
+        <select
+          aria-placeholder="select Your Project"
+          (click)="getSelectBoxValue($event)"
+          id="ddlViewBy"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option *ngFor="let pro of projects" [value]="pro.ProjectID">
+            {{ pro.ProjectName }}
+          </option>
+        </select>
+      </div>
+
+      <div class="task-container">
+        <div class="row">
+          <div class="col-md-12">
+            
+
+            <div class="task-chart-container" *ngIf="selectBoxValue == 1">
+              <div class="task-details">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Add Task</th>
+                      <th scope="col">Delete Task</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let task of tasksOne">
+                      <th scope="row">{{ task.TaskID }}</th>
+                      <td>{{ task.TaskName }}</td>
+                      <td>{{ task.StartDate }}</td>
+                      <td  data-bs-toggle="modal" data-bs-target="#exampleModal"><button (click)="navigateToTask()"  data-bs-toggle="modal" data-bs-target="#exampleModal"class="btn btn-primary">Add Task</button></td>
+                      
+                      <td>
+                        <button (click)="deleteTaskOne(task.TaskID)" class="btn btn-danger">Delete Task</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <hr />
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let protool of projectToolOne">
+                      <th scope="row">{{ protool.ToolId }}</th>
+                      <td>{{ protool.ToolName }}</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="task-chart-container" *ngIf="selectBoxValue == 2">
+              <div class="task-details">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Add Task</th>
+                      <th scope="col">Delete Task</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let task of tasksTwo">
+                      <th scope="row">{{ task.TaskID }}</th>
+                      <td>{{ task.TaskName }}</td>
+                      <td>{{ task.StartDate }}</td>
+                      <td><button (click)="navigateToTask()"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">Add Task</button></td>
+                      
+
+                      <td>
+                        <button (click)="deleteTaskTwo(task.TaskID)" class="btn btn-danger">Delete Task</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <hr />
+
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let protool of projectToolTwo">
+                      <th scope="row">{{ protool.ToolId }}</th>
+                      <td>{{ protool.ToolName }}</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row d-flex justify-content-center mt-20 p-20 chart-pie" *ngIf="chart" [ngClass]="{'appear': chart, 'disappear': !chart}">
+      <div class="col-md-10 mt-20 p-20">
+         
+        <app-pie-chart></app-pie-chart>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- Modal -->
+
+    </div>
+  </div>
+</section>

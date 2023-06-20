@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": " http://atisystems.ddns.net:53265/api  ",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
